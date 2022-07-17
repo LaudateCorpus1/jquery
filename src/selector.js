@@ -5,8 +5,9 @@ import documentElement from "./var/documentElement.js";
 import indexOf from "./var/indexOf.js";
 import pop from "./var/pop.js";
 import push from "./var/push.js";
-import whitespace from "./selector/var/whitespace.js";
+import whitespace from "./var/whitespace.js";
 import rbuggyQSA from "./selector/rbuggyQSA.js";
+import rtrim from "./var/rtrim.js";
 import isIE from "./var/isIE.js";
 
 // The following utils are attached directly to the jQuery object.
@@ -71,7 +72,6 @@ var i,
 
 	// Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
 	rwhitespace = new RegExp( whitespace + "+", "g" ),
-	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g" ),
 
 	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
 	rcombinators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" +
@@ -282,7 +282,8 @@ function createCache() {
 
 	function cache( key, value ) {
 
-		// Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
+		// Use (key + " ") to avoid collision with native prototype properties
+		// (see https://github.com/jquery/sizzle/issues/157)
 		if ( keys.push( key + " " ) > Expr.cacheLength ) {
 
 			// Only keep the most recent entries
@@ -432,7 +433,7 @@ function setDocument( node ) {
 	documentIsHTML = !jQuery.isXMLDoc( document );
 
 	// Support: IE 9 - 11+
-	// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
+	// Accessing iframe documents after unload throws "permission denied" errors (see trac-13936)
 	// Support: IE 11+
 	// IE sometimes throws a "Permission denied" error when strict-comparing
 	// two documents; shallow comparisons work.
@@ -843,7 +844,8 @@ Expr = jQuery.expr = {
 					input[ 0 ] = elem;
 					matcher( input, null, xml, results );
 
-					// Don't keep the element (issue #299)
+					// Don't keep the element
+					// (see https://github.com/jquery/sizzle/issues/299)
 					input[ 0 ] = null;
 					return !results.pop();
 				};
@@ -1348,7 +1350,8 @@ function matcherFromTokens( tokens ) {
 					matchContext( elem, context, xml ) :
 					matchAnyContext( elem, context, xml ) );
 
-			// Avoid hanging onto element (issue #299)
+			// Avoid hanging onto element
+			// (see https://github.com/jquery/sizzle/issues/299)
 			checkContext = null;
 			return ret;
 		} ];

@@ -4,6 +4,7 @@ import nodeName from "./core/nodeName.js";
 import rcssNum from "./var/rcssNum.js";
 import isIE from "./var/isIE.js";
 import rnumnonpx from "./css/var/rnumnonpx.js";
+import rcustomProp from "./css/var/rcustomProp.js";
 import cssExpand from "./css/var/cssExpand.js";
 import isAutoPx from "./css/isAutoPx.js";
 import cssCamelCase from "./css/cssCamelCase.js";
@@ -24,7 +25,6 @@ var
 	// except "table", "table-cell", or "table-caption"
 	// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
 	rdisplayswap = /^(none|table(?!-c[ea]).+)/,
-	rcustomProp = /^--/,
 	cssShow = { position: "absolute", visibility: "hidden", display: "block" },
 	cssNormalTransform = {
 		letterSpacing: "0",
@@ -220,15 +220,15 @@ jQuery.extend( {
 		if ( value !== undefined ) {
 			type = typeof value;
 
-			// Convert "+=" or "-=" to relative numbers (#7345)
+			// Convert "+=" or "-=" to relative numbers (trac-7345)
 			if ( type === "string" && ( ret = rcssNum.exec( value ) ) && ret[ 1 ] ) {
 				value = adjustCSS( elem, name, ret );
 
-				// Fixes bug #9237
+				// Fixes bug trac-9237
 				type = "number";
 			}
 
-			// Make sure that null and NaN values aren't set (#7116)
+			// Make sure that null and NaN values aren't set (trac-7116)
 			if ( value == null || value !== value ) {
 				return;
 			}
@@ -239,7 +239,7 @@ jQuery.extend( {
 			}
 
 			// Support: IE <=9 - 11+
-			// background-* props of a cloned element affect the source element (#8908)
+			// background-* props of a cloned element affect the source element (trac-8908)
 			if ( isIE && value === "" && name.indexOf( "background" ) === 0 ) {
 				style[ name ] = "inherit";
 			}

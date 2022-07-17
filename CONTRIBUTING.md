@@ -16,8 +16,11 @@ Note: This is the code development repository for *jQuery Core* only. Before ope
 
 We're always looking for help [identifying bugs](#how-to-report-bugs), writing and reducing test cases, and improving documentation. And although new features are rare, anything passing our [guidelines](https://github.com/jquery/jquery/wiki/Adding-new-features) will be considered.
 
-More information on how to contribute to this and other jQuery organization projects is at [contribute.jquery.org](https://contribute.jquery.org), including a short guide with tips, tricks, and ideas on [getting started with open source](https://contribute.jquery.org/open-source/). Please review our [commit & pull request guide](https://contribute.jquery.org/commits-and-pull-requests/) and [style guides](https://contribute.jquery.org/style-guide/) for instructions on how to maintain a fork and submit patches. Before we can merge any pull request, we'll also need you to sign our [contributor license agreement](https://contribute.jquery.org/cla/).
+More information on how to contribute to this and other jQuery organization projects is at [contribute.jquery.org](https://contribute.jquery.org), including a short guide with tips, tricks, and ideas on [getting started with open source](https://contribute.jquery.org/open-source/). Please review our [commit & pull request guide](https://contribute.jquery.org/commits-and-pull-requests/) and [style guides](https://contribute.jquery.org/style-guide/) for instructions on how to maintain a fork and submit patches.
 
+When opening a pull request, you'll be asked to sign our Contributor License Agreement. Both the Corporate and Individual agreements can be [previewed on GitHub](https://github.com/openjs-foundation/easycla).
+
+If you're looking for some good issues to start with, [here are some issues labeled "help wanted" or "patch welcome"](https://github.com/jquery/jquery/issues?q=is%3Aissue+label%3A%22help+wanted%22%2C%22Patch+Welcome%22).
 
 ## Questions and Discussion
 
@@ -48,7 +51,7 @@ Make sure you have reproduced the bug with all browser extensions and add-ons di
 
 ### Try the latest version of jQuery
 
-Bugs in old versions of jQuery may have already been fixed. In order to avoid reporting known issues, make sure you are always testing against the [latest build](https://code.jquery.com/jquery.js). We cannot fix bugs in older released files, if a bug has been fixed in a subsequent version of jQuery the site should upgrade.
+Bugs in old versions of jQuery may have already been fixed. In order to avoid reporting known issues, make sure you are always testing against the [latest build](https://releases.jquery.com/git/jquery-git.js). We cannot fix bugs in older released files, if a bug has been fixed in a subsequent version of jQuery the site should upgrade.
 
 ### Simplify the test case
 
